@@ -283,7 +283,8 @@ class WebAppView
         $view = $this->view->file(__DIR__.'/../../../views/app.blade.php');
 
         $view->title = $this->buildTitle(array_get($forum, 'data.attributes.title'));
-        $view->description = $this->description;
+        //$view->description = $this->description;
+		$view->description = ($this->description) ? $this->description : $this->buildTitle(array_get($forum, 'data.attributes.description'));
 
         $view->modules = $this->modules;
         $view->payload = $this->buildPayload($request, $forum);
